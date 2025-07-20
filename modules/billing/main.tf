@@ -12,6 +12,8 @@ resource "aws_budgets_budget" "no_spend" {
     notification_type          = "FORECASTED"
     subscriber_email_addresses = var.budget_subscription_emails
   }
+
+  tags = local.common_tags
 }
 
 resource "aws_budgets_budget" "default" {
@@ -30,4 +32,6 @@ resource "aws_budgets_budget" "default" {
     notification_type          = "FORECASTED"
     subscriber_email_addresses = var.budget_subscription_emails
   }
+
+  tags = local.common_tags
 }
