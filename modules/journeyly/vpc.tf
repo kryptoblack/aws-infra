@@ -123,7 +123,6 @@ resource "aws_subnet" "public" {
   }
 
   vpc_id            = aws_vpc.this.id
-  cidr_block        = each.value.cidr_block
   ipv6_cidr_block   = each.value.ipv6_cidr_block
   availability_zone = "${var.region}${each.value.az}"
 
