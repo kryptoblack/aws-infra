@@ -6,6 +6,11 @@ resource "aws_network_interface" "free" {
   security_groups    = [aws_security_group.free.id]
   source_dest_check  = true
 
+  attachment {
+    instance     = aws_instance.free.id
+    device_index = 0
+  }
+
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-free-eni"
   })
