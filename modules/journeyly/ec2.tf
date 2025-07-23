@@ -32,8 +32,8 @@ resource "aws_instance" "free" {
   #   network_interface_id = aws_network_interface.free.id
   #   device_index         = 0
   # }
-  #   #
-  #   # key_name = aws_key_pair.developer_key.key_name
+
+  key_name = aws_key_pair.developer_key.key_name
 
   tags = merge(local.common_tags, {
     Name = "Free"
