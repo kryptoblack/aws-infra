@@ -46,6 +46,18 @@ resource "aws_vpc_security_group_ingress_rule" "free_allow_ssh_ipv6" {
   })
 }
 
+resource "aws_vpc_security_group_ingress_rule" "free_allow_icmp_ipv6" {
+  description       = "Allow ICMP ingress traffic over IPv6"
+  security_group_id = aws_security_group.free.id
+  cidr_ipv6         = "::/0"
+  from_port         = 128
+  ip_protocol       = "icmp"
+  to_port           = 0
+  tags = merge(local.common_tags, {
+    Name = "allow-icmp-ipv6"
+  })
+}
+
 ### Egress ###
 
 resource "aws_vpc_security_group_egress_rule" "allow_all_traffic_ipv6" {
