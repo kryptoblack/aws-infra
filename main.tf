@@ -16,6 +16,6 @@ locals {
 # }
 
 module "journeyly" {
-  source      = "./modules/iam"
+  source      = "./modules/journeyly"
   common_tags = local.common_tags
 }
