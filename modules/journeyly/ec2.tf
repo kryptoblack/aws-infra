@@ -1,24 +1,42 @@
-# data "aws_ami" "amz_linux" {
-#   most_recent = true
-#
-#   filter {
-#     name   = "name"
-#     values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
-#   }
-#
-#   filter {
-#     name   = "virtualization-type"
-#     values = ["hvm"]
-#   }
-#
-#   owners = ["099720109477"]
-# }
-#
-# resource "aws_instance" "free" {
-#   ami           = data.aws_ami.amz_linux.id
-#   instance_type = "t4g.small"
-#
-#   tags = merge(local.common_tags, {
-#     Name = "Free"
-#   })
-# }
+data "aws_ami" "amz_linux" {
+  most_recent = true
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["arm64"]
+  }
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami*"]
+  }
+
+  filter {
+    name   = "owner-alias"
+    values = ["amazon"]
+  }
+}
+
+resource "aws_instance" "free" {
+  ami           = data.aws_ami.amz_linux.id
+  instance_type = "t4g.small"
+
+  network_interface {
+    network_interface_id = aws_network_interface.free.id
+    device_index         = 0
+  }
+
+  tags = merge(local.common_tags, {
+    Name = "Free"
+  })
+}
