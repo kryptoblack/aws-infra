@@ -36,3 +36,6 @@ terraform.rc
 # tfplans
 plans/*
 *.tfplan*
+
+# Lock file
+.terraform.lock.hcl

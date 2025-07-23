@@ -18,4 +18,5 @@ locals {
 module "journeyly" {
   source      = "./modules/journeyly"
   common_tags = local.common_tags
+  region      = var.region
 }
