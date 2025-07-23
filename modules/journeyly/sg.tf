@@ -8,7 +8,7 @@ resource "aws_security_group" "free" {
   })
 }
 
-resource "aws_vpc_security_group_ingress_rule" "alb_allow_http_ipv6" {
+resource "aws_vpc_security_group_ingress_rule" "free_allow_http_ipv6" {
   description       = "Allow HTTP traffic over IPv6"
   security_group_id = aws_security_group.free.id
   cidr_ipv6         = "::/0"
@@ -20,7 +20,7 @@ resource "aws_vpc_security_group_ingress_rule" "alb_allow_http_ipv6" {
   })
 }
 
-resource "aws_vpc_security_group_ingress_rule" "alb_allow_https_ipv6" {
+resource "aws_vpc_security_group_ingress_rule" "free_allow_https_ipv6" {
   description       = "Allow HTTPS traffic over IPv6"
   security_group_id = aws_security_group.free.id
   cidr_ipv6         = "::/0"
