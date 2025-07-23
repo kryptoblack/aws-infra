@@ -18,15 +18,15 @@ data "aws_ami" "amz_linux" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami*"]
+    values = ["al2023-ami-2023*-arm64"]
   }
 
-  owners = ["amazon"]
+  owners = ["137112412989"] # amazon
 }
 
 resource "aws_instance" "free" {
-  # ami           = data.aws_ami.amz_linux.id
-  ami           = "ami-08d019c28ad8d0847"
+  ami = data.aws_ami.amz_linux.id
+  # ami           = "ami-08d019c28ad8d0847"
   instance_type = "t4g.small"
 
   network_interface {
