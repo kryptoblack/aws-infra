@@ -21,10 +21,7 @@ data "aws_ami" "amz_linux" {
     values = ["amzn2-ami*"]
   }
 
-  filter {
-    name   = "owner-alias"
-    values = ["amazon"]
-  }
+  owners = ["amazon"]
 }
 
 resource "aws_instance" "free" {
