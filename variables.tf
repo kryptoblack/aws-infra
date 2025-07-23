@@ -8,3 +8,8 @@ variable "region" {
 #   description = "Email address to subscribe to budget notifications"
 #   type        = list(string)
 # }
+
+variable "journeyly_dev_public_ssh" {
+  description = "Journeyly developer public ssh key"
+  type        = string
+}

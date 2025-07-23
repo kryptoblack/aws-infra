@@ -37,3 +37,7 @@ resource "aws_instance" "free" {
     Name = "Free"
   })
 }
+resource "aws_key_pair" "developer_key" {
+  key_name   = "journeyly-developer-key"
+  public_key = var.journeyly_dev_public_ssh
+}

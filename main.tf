@@ -16,7 +16,8 @@ locals {
 # }
 
 module "journeyly" {
-  source      = "./modules/journeyly"
-  common_tags = local.common_tags
-  region      = var.region
+  source                   = "./modules/journeyly"
+  common_tags              = local.common_tags
+  journeyly_dev_public_ssh = var.journeyly_dev_public_ssh
+  region                   = var.region
 }
