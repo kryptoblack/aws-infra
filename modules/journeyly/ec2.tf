@@ -25,8 +25,7 @@ data "aws_ami" "amz_linux" {
 }
 
 resource "aws_instance" "free" {
-  ami = data.aws_ami.amz_linux.id
-  # ami           = "ami-08d019c28ad8d0847"
+  ami           = data.aws_ami.amz_linux.id
   instance_type = "t4g.small"
 
   network_interface {
