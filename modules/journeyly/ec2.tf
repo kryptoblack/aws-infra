@@ -33,12 +33,13 @@ resource "aws_instance" "free" {
     device_index         = 0
   }
 
-  key_name = aws_key_pair.developer_key.key_name
+  # key_name = aws_key_pair.developer_key.key_name
 
   tags = merge(local.common_tags, {
     Name = "Free"
   })
 }
+
 resource "aws_key_pair" "developer_key" {
   key_name   = "journeyly-developer-key"
   public_key = var.journeyly_dev_public_ssh
