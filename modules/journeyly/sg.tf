@@ -1,10 +1,10 @@
 resource "aws_security_group" "free" {
-  name        = "${var.name_prefix}-free"
+  name        = "${local.name_prefix}-free"
   description = "Allow HTTPS and HTTP inbound traffic and all outbound traffic"
   vpc_id      = aws_vpc.this.id
 
   tags = merge(local.common_tags, {
-    Name = "${var.name_prefix}-free"
+    Name = "${local.name_prefix}-free"
   })
 }
 
