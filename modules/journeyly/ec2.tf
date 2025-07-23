@@ -35,6 +35,14 @@ resource "aws_instance" "free" {
     device_index         = 0
   }
 
+  metadata_options {
+    http_protocol_ipv6 = "enabled"
+  }
+
+  maintenance_options {
+    auto_recovery = "default"
+  }
+
   tags = merge(local.common_tags, {
     Name = "Free"
   })
