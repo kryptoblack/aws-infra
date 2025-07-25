@@ -25,7 +25,6 @@ data "aws_ami" "amz_linux" {
 }
 
 resource "aws_instance" "free" {
-  # ami           = "ami-08d019c28ad8d0847"
   ami           = data.aws_ami.amz_linux.id
   instance_type = "t4g.small"
   key_name      = aws_key_pair.developer_key.key_name
