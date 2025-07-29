@@ -29,7 +29,7 @@ resource "aws_iam_role" "iac" {
         },
         Condition = {
           StringLike = {
-            "sts:ExternalId" = "kryptoblack@*"
+            "sts:ExternalId" = ["kryptoblack@*", "journeylyco@*"]
           }
         },
       },
